@@ -2,7 +2,26 @@
 
 import { useMemo, useState } from "react";
 
-const initialUsers = [
+type ScoreField = "atendimento" | "seguranca" | "prazo" | "qualidade";
+
+type MonthlyScore = {
+  atendimento: number;
+  seguranca: number;
+  prazo: number;
+  qualidade: number;
+};
+
+type Scores = Record<string, MonthlyScore>;
+
+type UserType = {
+  cs: string;
+  name: string;
+  passwordCreated: boolean;
+  password: string;
+  scores: Scores;
+};
+
+const initialUsers: UserType[] = [
   {
     cs: "CS443916",
     name: "Murilo",
@@ -100,7 +119,7 @@ function buttonStyle(): React.CSSProperties {
 }
 
 export default function Page() {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState<UserType[]>(initialUsers);
   const [tab, setTab] = useState<"login" | "create">("login");
 
   const [loginCS, setLoginCS] = useState("");
@@ -195,7 +214,14 @@ export default function Page() {
     setMessage("");
   }
 
-  function updateScore(cs: string, month: string, field: string, value: string) {
+  function updateScore(
+    cs: string,
+    month: string,
+    field: ScoreField,
+    value: string
+  ) {
+    const numericValue = Number(value) || 0;
+
     setUsers((prev) =>
       prev.map((u) =>
         u.cs === cs
@@ -204,8 +230,11 @@ export default function Page() {
               scores: {
                 ...u.scores,
                 [month]: {
-                  ...(u.scores[month as keyof typeof u.scores] || {}),
-                  [field]: Number(value),
+                  atendimento: u.scores[month]?.atendimento ?? 0,
+                  seguranca: u.scores[month]?.seguranca ?? 0,
+                  prazo: u.scores[month]?.prazo ?? 0,
+                  qualidade: u.scores[month]?.qualidade ?? 0,
+                  [field]: numericValue,
                 },
               },
             }
@@ -395,6 +424,7 @@ export default function Page() {
               }}
             >
               <input
+                type="number"
                 style={inputStyle()}
                 value={currentScores.atendimento}
                 onChange={(e) =>
@@ -402,6 +432,7 @@ export default function Page() {
                 }
               />
               <input
+                type="number"
                 style={inputStyle()}
                 value={currentScores.seguranca}
                 onChange={(e) =>
@@ -409,6 +440,7 @@ export default function Page() {
                 }
               />
               <input
+                type="number"
                 style={inputStyle()}
                 value={currentScores.prazo}
                 onChange={(e) =>
@@ -416,6 +448,7 @@ export default function Page() {
                 }
               />
               <input
+                type="number"
                 style={inputStyle()}
                 value={currentScores.qualidade}
                 onChange={(e) =>
