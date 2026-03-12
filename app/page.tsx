@@ -252,12 +252,13 @@ export default function Page() {
     return (
       <div
         style={{
-          minHeight: "100vh",
-          background: "#f3f4f6",
-          padding: 24,
-          fontFamily: "Arial, sans-serif",
-        }}
-      >
+        minHeight: "100vh",
+        background: "#f3f4f6",
+        padding: 24,
+        fontFamily: "Arial, sans-serif",
+        color: "#111827"
+      }}
+     >
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div
             style={{
@@ -271,7 +272,7 @@ export default function Page() {
             }}
           >
             <div>
-              <div style={{ fontSize: 14, color: "#6b7280" }}>Portal de Pontuação</div>
+              <div style={{ fontSize: 14, color: "#374151" }}>Portal de Pontuação</div>
               <h1 style={{ margin: "6px 0", fontSize: 32, color: "#111827" }}>Olá, {currentUser.name}</h1>
               <div style={{ color: "#4b5563" }}>
                 Você está vendo somente a sua pontuação.
