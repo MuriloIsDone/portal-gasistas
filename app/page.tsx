@@ -98,10 +98,12 @@ function inputStyle(): React.CSSProperties {
     width: "100%",
     padding: "12px 14px",
     borderRadius: 12,
-    border: "1px solid #d1d5db",
+    border: "1px solid #9ca3af",
     outline: "none",
     fontSize: 14,
     boxSizing: "border-box",
+    color: "#111827",
+    background: "#ffffff",
   };
 }
 
@@ -486,7 +488,7 @@ export default function Page() {
           border: "1px solid #e5e7eb",
         }}
       >
-        <h1 style={{ marginTop: 0, marginBottom: 8 }}>Portal Gasistas</h1>
+        <h1 style={{ marginTop: 0, marginBottom: 8, color: "#111827" }}>Portal Gasistas</h1>
         <p style={{ color: "#6b7280", marginTop: 0 }}>
           Cada gasista entra com o próprio CS e vê apenas a sua pontuação.
         </p>
@@ -528,7 +530,7 @@ export default function Page() {
         {tab === "login" && (
           <div style={{ display: "grid", gap: 12 }}>
             <div>
-              <label style={{ display: "block", marginBottom: 6, fontSize: 14 }}>CS</label>
+              <label style={{ display: "block", marginBottom: 6, fontSize: 14 }}>Senha</label>
               <input
                 style={inputStyle()}
                 placeholder="CS123456"
@@ -556,7 +558,7 @@ export default function Page() {
         {tab === "create" && (
           <div style={{ display: "grid", gap: 12 }}>
             <div>
-              <label style={{ display: "block", marginBottom: 6, fontSize: 14 }}>CS</label>
+              <label style={{ display: "block", marginBottom: 6, fontSize: 14, color: "#374151" }}>CS</label>
               <input
                 style={inputStyle()}
                 placeholder="CS123456"
