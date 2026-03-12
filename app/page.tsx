@@ -272,7 +272,7 @@ export default function Page() {
           >
             <div>
               <div style={{ fontSize: 14, color: "#6b7280" }}>Portal de Pontuação</div>
-              <h1 style={{ margin: "6px 0", fontSize: 32 }}>Olá, {currentUser.name}</h1>
+              <h1 style={{ margin: "6px 0", fontSize: 32, color: "#111827" }}>Olá, {currentUser.name}</h1>
               <div style={{ color: "#4b5563" }}>
                 Você está vendo somente a sua pontuação.
               </div>
