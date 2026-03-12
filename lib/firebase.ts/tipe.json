@@ -1,0 +1,15 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "gasista-d787b.firebaseapp.com",
+  projectId: "gasista-d787b",
+  storageBucket: "gasista-d787b.firebasestorage.app",
+  messagingSenderId: "186191908576",
+  appId: "1:186191908576:web:0a996ccd9f139c01b60a85"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
